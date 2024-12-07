@@ -140,7 +140,7 @@ class RPC {
       const data = this.service[method](...args);
       return new RPCResponse(RPCStatus.Success, data);
     } catch (err) {
-      return new RPCResponse(RPCStatus.Error, err.message);
+	return new RPCResponse(RPCStatus.Error, (err as Error).message);
     }
   }
 }
