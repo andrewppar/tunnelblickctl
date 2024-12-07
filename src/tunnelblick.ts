@@ -41,7 +41,7 @@ class TunnelblickController {
       app.includeStandardAdditions = true;
       return app;
     } catch (err) {
-      if (err.errorNumber === -2700 && err.message.match(/Application can't be found/)) {
+	if ((err as Error).message.match(/Application can't be found/)) {
         throw new Error('Tunnelblick is not installed');
       }
       throw err;
